@@ -27,6 +27,12 @@ fi
 
 cd ${tmp}
 
+if [ -d "${PROJECT_NAME}" ]; then
+  time=$(date +"%T %d-%m-%Y")
+  rm -rf "${PROJECT_NAME}"
+  echo "${time} [I] Remove folder '${PROJECT_NAME}' done!"
+fi
+
 git clone "${SOURCE}"
 
 
@@ -40,6 +46,12 @@ else
 fi
 
 cd ${curr_dir}
+
+if [ -d "${PROJECT_NAME_OLD}" ]; then
+  time=$(date +"%T %d-%m-%Y")
+  rm -rf "${PROJECT_NAME_OLD}"
+  echo "${time} [I] Remove folder '${PROJECT_NAME_OLD}' done!"
+fi
 
 mv ${PROJECT_NAME} ${PROJECT_NAME_OLD}
 
